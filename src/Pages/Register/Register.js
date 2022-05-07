@@ -5,6 +5,7 @@ import {
 } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import GoogleLogin from "../Shared/GoogleLogin/GoogleLogin";
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -78,6 +79,7 @@ const Register = () => {
             >
               Register
             </button>
+            <GoogleLogin/>
           </form>
         </div>
       </div>
