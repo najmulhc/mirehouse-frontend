@@ -68,6 +68,15 @@ export default function Header({ fixed }) {
                 <>
                   <li className="nav-item">
                     <Link
+                      to="/myItems"
+                      className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                      href="#pablo"
+                    >
+                      <span className="ml-2">My Items</span>
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link
                       to="/items/add"
                       className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                       href="#pablo"
@@ -96,13 +105,13 @@ export default function Header({ fixed }) {
                 <>
                   <li>
                     <Link
-                      to="/register"
+                      to="/login"
                       className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
                       href="#pablo"
                     >
                       <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i>
                       <span className="ml-2 bg-white hover:bg-blue-dark text-green-600 font-bold py-2 px-4 rounded">
-                        Register
+                        Login
                       </span>
                     </Link>
                   </li>

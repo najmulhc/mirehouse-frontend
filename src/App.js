@@ -10,7 +10,9 @@ import Register from "./Pages/Register/Register";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Header from "./Pages/Shared/Header/Header";
 import RouteProtector from "./Pages/Shared/RouteProtector/RouteProtector";
-
+import { Toaster } from "react-hot-toast";
+import MyItems from "./Pages/MyItems/MyItems";
+import SingleProduct from "./Pages/SingleProduct/SingleProduct";
 function App() {
   const [user] = useAuthState(auth);
   if (user) {
@@ -30,12 +32,28 @@ function App() {
             </RouteProtector>
           }
         />
-        <Route path="/items/add" element={
-          <RouteProtector><AddItem/></RouteProtector>
+        <Route path="/inventory/:itemId" element={
+          <RouteProtector>
+            <SingleProduct/>
+          </RouteProtector>
+        }/>
+        <Route
+          path="/items/add"
+          element={
+            <RouteProtector>
+              <AddItem />
+            </RouteProtector>
+          }
+        /> 
+        <Route path="/myItems" element={
+          <RouteProtector>
+            <MyItems/>
+          </RouteProtector>
         } />
         <Route path="/register" element={<Register />}></Route>
       </Routes>
       <Footer />
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 }

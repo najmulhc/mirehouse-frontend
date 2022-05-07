@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
 import auth from "../../firebase.init";
 const AddItem = () => {
   const [user] = useAuthState(auth);
@@ -30,7 +31,10 @@ const AddItem = () => {
       body: JSON.stringify(item),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        toast("Item added to the server");
+        e.target.reset();
+      });
   };
 
   return (
