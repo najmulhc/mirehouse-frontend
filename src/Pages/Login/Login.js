@@ -1,66 +1,87 @@
-import React, { useState } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
-import auth from '../../firebase.init';
-import GoogleLogin from '../Shared/GoogleLogin/GoogleLogin';
-
+import React, { useState } from "react";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
+import auth from "../../firebase.init";
+import GoogleLogin from "../Shared/GoogleLogin/GoogleLogin";
+import login from "../../img/login.png"
 const Login = () => {
-    const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [
-    signInWithEmailAndPassword,
-    user,
-    loading,
-    error,
-  ] = useSignInWithEmailAndPassword(auth);
-const navigate = useNavigate()
-  const login = (e) => {
-      e.preventDefault();
-      signInWithEmailAndPassword(email, password);
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const navigate = useNavigate();
+ 
+  if (user) {
+    navigate("/");
+    toast.success('Login successfull')
   }
-  if(user){
-      navigate("/")
+  if (error) {
+    toast.error(error.code);
   }
-    return (
-        <section className="md:grid md:grid-cols-2  w-full bg-red-500">
-        <div className="bg-blue-600  flex justify-center items-center py-[120px]">
-        <div className="w-2/3 bg-white shadow-md ">
-            <form action="" className="my-4" onSubmit={login}>
-              <h1 className="text-3xl text-center font-bold text-green-600 mb-2">
-                Login
-              </h1>
-               
+  const test = e => {
+    e.preventDefault();
+    
+    signInWithEmailAndPassword(email, password);
+  }
+  return (
+    <section className="md:grid md:grid-cols-2  w-full">
+      <div className="bg-blue-600  flex justify-center items-center py-[120px] bg-komola">
+        <div className="w-[400px] bg-white rounded-md shadow-md p-8">
+          <form  >
+            <h1 className="text-kala text-4xl font-bold text-center mb-10">
+              Login
+            </h1>
+            <label htmlFor="email">
+              <h2 className="m-0 p-0 font-semibold text-kala">
+                Enter email <span className="text-red">*</span>
+              </h2>
               <input
+                name="email"
                 type="email"
                 placeholder="Email Address"
-                className="w-5/6 py-1 px-2 text-xl my-2  border mx-2 border-green-500"
-                onChange={(e) => setEmail(e.target.value)}
+                className="border-b-2 w-full p-2 text-lg border-b-komola "
+                onBlur={(e) => setEmail(e.target.value)}
                 required
               />
+            </label>
+            <label htmlFor="password">
+              <h2 className="mt-6 p-0 font-semibold text-kala">
+                Enter Password <span className="text-red">*</span>
+              </h2>
               <input
+                name="password"
                 type="password"
                 placeholder="Password"
-                className="w-5/6 py-1 px-2 text-xl my-2  border mx-2 border-green-500"
-                onChange={(e) => setPassword(e.target.value)}
+                className="border-b-2 w-full p-2 text-lg border-b-komola"
+                onBlur={(e) => setPassword(e.target.value)}
                 required
               />
-               
-              <p className="text-sm   text-green-700 ">New here? <Link to="/register">Register Here</Link></p>
-              <button
-                className="w-5/6  bg-green-600 text-white py-1 text-xl"
-                type="submit"
-              >
-                Login
-              </button>
-              <GoogleLogin/>
-            </form>
-          </div>
+            </label>
+
+            <p className="text-sm mt-2 text-center  text-kala ">
+              New here?{" "}
+              <Link to="/register" className="text-komola">
+                Register Here
+              </Link>
+            </p>
+
+            <button
+            onClick={test}
+              className="flex w-full justify-center"
+              type="submit"
+            > <span className="text-white  rounded-full  font-bold py-2 px-20  hover:text-komola bg-komola border hover:bg-white border-komola  my-2 mx-auto ">Login</span>
+          
+            </button>
+            <GoogleLogin />
+          </form>
         </div>
-        <div className="bg-orange-600">
-         
-        </div>
-      </section>
-    );
+      </div>
+      <div className="bg-orange-600 hidden md:flex justify-center items-center">
+        <img src={login} alt="" />
+      </div>
+    </section>
+  );
 };
 
 export default Login;

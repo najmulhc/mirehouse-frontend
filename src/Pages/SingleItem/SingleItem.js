@@ -1,10 +1,12 @@
 import React from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const SingleItem = (props) => {
   const {item} = props;
   const {delet} = props;
   const link = `/inventory/${item._id}`;
+
   return (
     <div className="rounded-md shadow-lg p-8 bg-white m-6">
       <img src={item.img} className="w-full" alt="" />
@@ -18,9 +20,7 @@ const SingleItem = (props) => {
       <button className="text-white  rounded-full  font-bold py-2 px-4 hover:text-komola bg-komola border hover:bg-white border-komola mt-4 inline">
         <Link to={link}>Manage</Link>
       </button>
-      {delet?  <button className="text-white  rounded-full  font-bold py-2 px-4 hover:text-red bg-red border hover:bg-white border-red mt-4 inline ml-4">
-       Delete
-      </button>  :<></>}
+  
     </div>
   );
 };
