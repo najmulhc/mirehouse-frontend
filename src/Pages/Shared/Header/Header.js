@@ -26,7 +26,7 @@ export default function Header({ fixed }) {
               </span>
             </Link>
             <button
-              className="text-kala cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+              className="text-kala cursor-pointer text-xl leading-none pr-6 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
               type="button"
               onClick={() => setNavbarOpen(!navbarOpen)}
             >
@@ -44,7 +44,7 @@ export default function Header({ fixed }) {
               <li className="nav-item">
                 <Link
                   to="/"
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-kala hover:opacity-75"
+                  className="pr-6 py-2 flex items-center text-xs uppercase font-bold leading-snug text-kala hover:opacity-75"
                   href="#pablo"
                 >
                   <i className="fab fa-facebook-square text-lg leading-lg text-kala opacity-75"></i>
@@ -54,7 +54,7 @@ export default function Header({ fixed }) {
               <li className="nav-item">
                 <Link
                   to="/inventory"
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-kala hover:opacity-75"
+                  className="pr-6 py-2 flex items-center text-xs uppercase font-bold leading-snug text-kala hover:opacity-75"
                   href="#pablo"
                 >
                   <i className="fab fa-twitter text-lg leading-lg text-kala opacity-75"></i>
@@ -67,7 +67,7 @@ export default function Header({ fixed }) {
                   <li className="nav-item">
                     <Link
                       to="/myItems"
-                      className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-kala hover:opacity-75"
+                      className="pr-6 py-2 flex items-center text-xs uppercase font-bold leading-snug text-kala hover:opacity-75"
                       href="#pablo"
                     >
                       <span className="ml-2">My Items</span>
@@ -76,7 +76,7 @@ export default function Header({ fixed }) {
                   <li className="nav-item">
                     <Link
                       to="/items/add"
-                      className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-kala hover:opacity-75"
+                      className="pr-6 py-2 flex items-center text-xs uppercase font-bold leading-snug text-kala hover:opacity-75"
                       href="#pablo"
                     >
                       <span className="ml-2">Add an Item</span>
@@ -85,7 +85,7 @@ export default function Header({ fixed }) {
                   <li className="nav-item">
                     <Link
                       to="/inventory"
-                      className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-kala hover:opacity-75"
+                      className="pr-6 py-2 flex items-center text-xs uppercase font-bold leading-snug text-kala hover:opacity-75"
                       href="#pablo"
                     >
                       <i className="fab fa-twitter text-lg leading-lg text-kala opacity-75"></i>
@@ -104,7 +104,7 @@ export default function Header({ fixed }) {
                   <li>
                     <Link
                       to="/login"
-                      className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-kala hover:opacity-75"
+                      className="pr-6 py-2 flex items-center text-xs uppercase font-bold leading-snug text-kala hover:opacity-75"
                       href="#pablo"
                     >
                       
