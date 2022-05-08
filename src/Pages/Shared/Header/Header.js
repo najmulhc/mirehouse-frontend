@@ -53,6 +53,17 @@ export default function Header({ fixed }) {
               </li>
               <li className="nav-item">
                 <Link
+                  to="/blog"
+                  className="pr-6 py-2 flex items-center text-xs uppercase font-bold leading-snug text-kala hover:opacity-75"
+                  href="#pablo"
+                >
+                  <i className="fab fa-facebook-square text-lg leading-lg text-kala opacity-75"></i>
+                  <span className="ml-2">blog
+  </span>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
                   to="/inventory"
                   className="pr-6 py-2 flex items-center text-xs uppercase font-bold leading-snug text-kala hover:opacity-75"
                   href="#pablo"

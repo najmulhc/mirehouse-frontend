@@ -20,7 +20,7 @@ const SingleProduct = () => {
 
   useEffect(() => {
     const query = { _id: itemId };
-    fetch("http://localhost:5000/item", {
+    fetch("https://localhost:5000/item", {
       method: "POST",
       headers: {
         "content-type": "application/json",

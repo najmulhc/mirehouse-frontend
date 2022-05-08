@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
-import SingleItem from "../SingleItem/SingleItem";
+import { useNavigate } from "react-router-dom";
 
 const Inventory = () => {
   const [items, setItems] = useState([]);

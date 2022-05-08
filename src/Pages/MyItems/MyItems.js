@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
-import SingleItem from "../SingleItem/SingleItem";
 
 const MyItems = () => {
   const [user] = useAuthState(auth);
