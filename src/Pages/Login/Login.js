@@ -1,32 +1,63 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import GoogleLogin from "../Shared/GoogleLogin/GoogleLogin";
 import login from "../../img/login.png"
+import { Bars, LineWave } from "react-loader-spinner";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
+  const location = useLocation();
  
-  if (user) {
-    navigate("/");
-    toast.success('Login successfull')
+  useEffect(() => {
+    if (user) {
+      console.log(user);
+      const {email} = user.user;
+      const userId = {email}
+      console.log(userId);
+      fetch("http://localhost:5000/login", {
+        method:"POST",
+        headers:{
+          "content-type": "application/json"
+        }, 
+        body: JSON.stringify(userId)
+      })
+      .then(res => res.json()) 
+      .then(data =>{ 
+        console.log(data);
+         localStorage.setItem("key", data.accesToken)
+      })
+       
+      toast.success('Login successfull');
+      if(location.state?.from){
+        navigate(location.state.from)
+      }
+    }
+  },[user])
+  if(loading){
+    return <div className="w-full h-[660px] flex items-center justify-center"><Bars
+    color="#F9AA4B"
+    height={110}
+    width={110}
+    ariaLabel="three-circles-rotating"
+  /></div>
   }
   if (error) {
     toast.error(error.code);
   }
   const test = e => {
     e.preventDefault();
-    
     signInWithEmailAndPassword(email, password);
+   
   }
   return (
     <section className="md:grid md:grid-cols-2  w-full">
-      <div className="bg-blue-600  flex justify-center items-center py-[120px] bg-komola">
+      <div className="flex justify-center items-center py-[120px] bg-komola">
         <div className="w-[400px] bg-white rounded-md shadow-md p-8">
           <form  >
             <h1 className="text-kala text-4xl font-bold text-center mb-10">

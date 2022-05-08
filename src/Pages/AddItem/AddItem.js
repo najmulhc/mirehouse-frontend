@@ -38,38 +38,36 @@ const AddItem = () => {
   };
 
   return (
-    <div className="bg-blue-600  flex justify-center items-center py-[120px]">
-      <div className="w-[600px] bg-white shadow-md p-3">
+    <div className="bg-komola  flex justify-center items-center py-5">
+      <div className="w-[600px] bg-white shadow-md p-4 rounded-md">
         <form action="" className="w-[90%] mx-auto" onSubmit={submitItem}>
-          <h1 className="text-3xl text-center font-bold text-green-600 mb-2">
-            Add an Item
+          <h1 className="text-kala text-4xl font-bold text-center mb-10">
+            Add an item
           </h1>
           <label htmlFor="name" className="my-2">
-            <h3 className="text-left text-md text-lg font-semibold text-slate-800 p-0 m-0 ">
-              Item name:
-            </h3>
+            <h3 className="m-0 mt-6 p-0 font-semibold text-kala">Item name:</h3>
             <input
               name="name"
               type="text"
               placeholder="Eg: Backpack"
-              className="w-full py-1 px-2 text-xl my-2  border  border-green-500"
+              className="border-b-2 w-full p-2 text-lg border-b-komola "
               required
             />
           </label>
           <label htmlFor="name" className="my-2">
-            <h3 className="text-left text-md text-lg font-semibold text-slate-800 p-0 m-0 ">
+            <h3 className="m-0 mt-6 p-0 font-semibold text-kala">
               Description:
             </h3>
             <input
               name="description"
               type="text"
               placeholder="Add a short description"
-              className="w-full py-1 px-2 text-xl my-2  border  border-green-500"
+              className="border-b-2 w-full p-2 text-lg border-b-komola "
               required
             />
           </label>
           <label htmlFor="name" className="my-2">
-            <h3 className="text-left text-md text-lg font-semibold text-slate-800 p-0 m-0 ">
+            <h3 className="m-0 mt-6 p-0 font-semibold text-kala">
               Image:{" "}
               <span className="text-slate-400">
                 (Make sure the image has correct dimention)
@@ -79,49 +77,42 @@ const AddItem = () => {
               name="img"
               type="text"
               placeholder="Image url"
-              className="w-full py-1 px-2 text-xl my-2  border  border-green-500"
+              className="border-b-2 w-full p-2 text-lg border-b-komola "
             />
           </label>
           <label htmlFor="name" className="my-2">
-            <h3 className="text-left text-md text-lg font-semibold text-slate-800 p-0 m-0 ">
-              Price:
-            </h3>
+            <h3 className="m-0 mt-6 p-0 font-semibold text-kala">Price:</h3>
             <input
               name="price"
               type="number"
               placeholder="In US$"
-              className="w-full py-1 px-2 text-xl my-2  border  border-green-500"
+              className="border-b-2 w-full p-2 text-lg border-b-komola "
               required
             />
           </label>
           <label htmlFor="name" className="my-2">
-            <h3 className="text-left text-md text-lg font-semibold text-slate-800 p-0 m-0 ">
-              Supplier:
-            </h3>
+            <h3 className="m-0 mt-6 p-0 font-semibold text-kala">Supplier:</h3>
             <input
               name="supplier"
               type="text"
               placeholder="The company we will get the product from"
-              className="w-full py-1 px-2 text-xl my-2  border  border-green-500"
+              className="border-b-2 w-full p-2 text-lg border-b-komola "
               required
             />
           </label>
           <label htmlFor="name" className="my-2">
-            <h3 className="text-left text-md text-lg font-semibold text-slate-800 p-0 m-0 ">
-              Quantity:
-            </h3>
+            <h3 className="m-0 mt-6 p-0 font-semibold text-kala">Quantity:</h3>
             <input
               name="quantity"
               type="number"
               placeholder="How many Items???"
-              className="w-full py-1 px-2 text-xl my-2  border  border-green-500"
+              className="border-b-2 w-full p-2 text-lg border-b-komola "
             />
           </label>
-          <button
-            className="w-full  bg-green-600 text-white py-1 text-xl"
-            type="submit"
-          >
-            Add this!!!
+          <button className="w-full flex justify-center mt-4" type="submit">
+            <span className="text-white  rounded-full  font-bold py-2 px-20  hover:text-komola bg-komola border hover:bg-white border-komola  my-2 mx-auto ">
+              Add item
+            </span>
           </button>
         </form>
       </div>

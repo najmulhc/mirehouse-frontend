@@ -29,7 +29,7 @@ const SingleProduct = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setItem(data); 
+        setItem(data);
       });
   }, [quantity, itemId]);
 
@@ -55,64 +55,66 @@ const SingleProduct = () => {
     const added = parseInt(e.target.add.value);
     e.target.reset();
     setQuantity(quantity + added);
-    toast("items added, please refresh to see updates")
+    toast("items added, please refresh to see updates");
   };
 
   return (
-    <main className="container mx-auto">
-      <h1 className="font-bold text-5xl py-2 text-green-600">Item Details</h1>
-      <div className="md:grid md:grid-cols-2 mt-4">
-        <div className="flex justify-center items-center bg-green-600  py-6">
-          <img src={item.img} className="w-[80%]" alt="" />
-        </div>
-        <div className="text-left p-6">
-          <div className="flex flex-col justify-center h-full">
-            <h2 className="text-5xl font-semibold text-slate-700">
-              {item.name}
-            </h2>
-            <h2 className="text-3xl font-semibold text-green-700 ">
-              ${item.price}
-            </h2>
-            <p className="text-xl text-slate-800 my-4">{item.description}</p>{" "}
-            <h3 className="text-lg text-slate-800 font-normal my-4">
-              Supplied by:{" "}
-              <span className="font-semibold text-green-600">
-                {item.supplier}
-              </span>
-            </h3>
-            <h2 className="text-left font-semibold text-2xl text-slate-800 ">
-              Stock:{item.quantity}
-            </h2>
-            <form onSubmit={addItem} action="">
-              <h2 className="text-slate-800 font-medium text-left mb-0 pb-0 mt-8">
-                Add items to stock
+    <main className="bg-komola pb-10 pt-4">
+      <div className="container mx-auto  ">
+        {" "}
+        <h1 className="text-kala text-4xl font-bold mt-6 text-center mb-10">
+          Manage Item
+        </h1>
+        <div className="md:grid md:grid-cols-2 mt-4  bg-white p-8 rounded-md shadow-md ">
+          <div className="flex justify-center items-center bg-green-600   ">
+            <img src={item.img} className="w-[350px] " alt="" />
+          </div>
+          <div className="text-left p-6">
+            <div className="flex flex-col justify-center ">
+              <h2 className="text-5xl text-kala mb-4">{item.name}</h2>
+              <h2 className="text-5xl font-semibold text-komola ">
+                ${item.price}
               </h2>
-              <div className="flex items-center justify-start">
-                <input
-                  type="number"
-                  placeholder="How many new items?"
-                  className="text-left self-start py-1 px-2 text-xl my-2  border mx-0 border-green-500"
-                  name="add"
-                  required
-                />
-
+              <p className="text-lg text-kala mt-6">{item.description}</p>
+              <h3 className="text-lg text-kala font-normal my-4">
+                Supplied by:{" "}
+                <span className="font-semibold text-komola">
+                  {item.supplier}
+                </span>
+              </h3>
+              <h2 className="text-left font-semibold text-2xl text-komola ">
+                Stock:{item.quantity}
+              </h2>
+              <form onSubmit={addItem} action="">
+                <label htmlFor="add">
+                  <h3 className="m-0 mt-6 p-0 text-lg font-semibold text-kala">
+                    Add item to stock
+                  </h3>
+                  <input
+                    type="number"
+                    placeholder="How many new items?"
+                    className="border-b-2 w-full p-2 text-lg border-b-komola "
+                    name="add"
+                    required
+                  />
+                </label>
                 <button
-                  className="inline ml-2 bg-green-600 hover:bg-blue-dark text-white font-bold py-2 px-4 rounded"
+                  className="text-white  rounded-full  font-bold py-2 px-20  hover:text-komola bg-komola border hover:bg-white border-komola mt-4 "
                   type="submit"
                 >
                   Add
                 </button>
-              </div>
-            </form>
-            <button
-              onClick={() => {
-                toast("item delivered!");
-                setQuantity(quantity - 1);
-              }}
-              className="w-full bg-green-600 text-center py-4 text-xl text-white mt-24"
-            >
-              Deliver a product
-            </button>
+              </form>
+              <button
+                onClick={() => {
+                  toast("item delivered!");
+                  setQuantity(quantity - 1);
+                }}
+                className="w-full bg-kala rounded-md text-center py-4 text-xl text-white mt-4"
+              >
+                Deliver a product
+              </button>
+            </div>
           </div>
         </div>
       </div>
