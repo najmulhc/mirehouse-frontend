@@ -1,0 +1,6 @@
+.hero{
+    background-image: url("/src/img/hero-bg.png"); 
+ 
+    background-position: 300px 100px;
+    background-size: inherit;
+}
