@@ -24,7 +24,7 @@ const Inventory = () => {
       </h2>
       <div className="md:grid md:grid-cols-3 md:gap-3  mb-10">
         {items.map((item) => {
-          return <SingleItem item={item} key={item._id} />;
+          return <SingleItem item={item} delet={true} key={item._id} />;
         })}
       </div>
     </div>

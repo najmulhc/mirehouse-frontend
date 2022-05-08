@@ -9,9 +9,11 @@ const DisplayItems = () => {
       .then((data) => setItems(data));
   }, []);
   return (
-    <section>
-      <h1 className="font-bold text-3xl py-2 text-green-600" >Featured Products</h1>
-      <div className="md:grid md:grid-cols-3 md:gap-3 container mx-auto mb-10">
+    <section className=" bg-komola py-10 mt-8">
+        <h1 className="text-kala text-4xl font-bold text-center mb-8">
+        Featured Products
+      </h1>
+      <div className="container md:grid md:grid-cols-3    mx-auto mb-10">
         {
           items.map(item => {return <SingleItem item={item} key={item._id}/>})
         }

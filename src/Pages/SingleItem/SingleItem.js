@@ -1,20 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SingleItem = ({ item }) => {
-    const link = `/inventory/${item._id}`
+const SingleItem = (props) => {
+  const {item} = props;
+  const {delet} = props;
+  const link = `/inventory/${item._id}`;
   return (
-    <div className="  p-3 bg-green-200 h-full">
-      <img src={item.img} className="w-48 mx-auto   m-4" alt="" />
-      <div className="flex justify-between items-center mx-3 ">
-        <h1 className="text-left text-xl font-bold text-slate-600 mr-4 ">
+    <div className="rounded-md shadow-lg p-8 bg-white m-6">
+      <img src={item.img} className="w-full" alt="" />
+      <div className="flex justify-between items-center mt-6 ">
+        <h1 className="text-left text-2xl font-semibold text-kala mr-4 ">
           {item.name}
         </h1>
-        <h1 className="text-4xl font-bold text-green-700 ">${item.price}</h1>
+        <h1 className="text-4xl font-semibold text-komola ">${item.price}</h1>
       </div>
-      <h2 className="text-left ml-3 mt-7 text-xl text-slate-700">Supplied by: <span className="text-green-700 font-semibold">{item.supplier}</span></h2>
-      <h1 className="text-left ml-3 text-2xl text-slate-800 font-semibold mt-1">Stock: <span className="font-bold text-green-700">{item.quantity}</span></h1>
-      <button className="text-3xl"><Link  to={link} >go there</Link></button>
+      
+      <button className="text-white  rounded-full  font-bold py-2 px-4 hover:text-komola bg-komola border hover:bg-white border-komola mt-4 inline">
+        <Link to={link}>Manage</Link>
+      </button>
+      {delet?  <button className="text-white  rounded-full  font-bold py-2 px-4 hover:text-red bg-red border hover:bg-white border-red mt-4 inline ml-4">
+       Delete
+      </button>  :<></>}
     </div>
   );
 };
