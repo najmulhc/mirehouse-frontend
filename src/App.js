@@ -14,6 +14,7 @@ import { Toaster } from "react-hot-toast";
 import MyItems from "./Pages/MyItems/MyItems";
 import SingleProduct from "./Pages/SingleProduct/SingleProduct";
 import Blog from "./Pages/Blog/Blog";
+import NotFound from "./Pages/NotFound/NotFound";
 function App() {
   const [user] = useAuthState(auth);
   if (user) {
@@ -34,6 +35,7 @@ function App() {
           }
         />
         <Route path="/blog" element={<Blog/> } />
+        <Route path="*" element={<NotFound/> } />
         <Route path="/inventory/:itemId" element={
           <RouteProtector>
             <SingleProduct/>
