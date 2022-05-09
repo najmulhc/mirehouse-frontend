@@ -6,7 +6,7 @@ const Inventory = () => {
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch("http://localhost:5000/items/all")
+    fetch("https://the-summit-gear.herokuapp.com/items/all")
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, []);
@@ -14,7 +14,7 @@ const Inventory = () => {
     if (window.confirm(`are you sure to delete ${item.name}`)) {
       console.log("user want to delete the item");
       const deletingItem = { _id: item._id };
-      fetch("http://localhost:5000/item/delete", {
+      fetch("https://the-summit-gear.herokuapp.com/item/delete", {
         method: "DELETE",
         headers: {
           "content-type": "application/json",

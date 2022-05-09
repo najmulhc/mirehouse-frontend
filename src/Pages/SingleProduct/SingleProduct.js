@@ -20,7 +20,7 @@ const SingleProduct = () => {
 
   useEffect(() => {
     const query = { _id: itemId };
-    fetch("https://localhost:5000/item", {
+    fetch("https://the-summit-gear.herokuapp.com/item", {
       method: "POST",
       headers: {
         "content-type": "application/json",

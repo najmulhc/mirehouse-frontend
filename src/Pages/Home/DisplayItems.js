@@ -6,7 +6,7 @@ const DisplayItems = () => {
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch("http://localhost:5000/items/home")
+    fetch("https://the-summit-gear.herokuapp.com/items/home")
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, []);

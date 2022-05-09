@@ -11,7 +11,7 @@ const MyItems = () => {
   const userEmail = { id: email };
   useEffect(() => {
     let token = localStorage.getItem("key")
-    fetch("http://localhost:5000/items/my", {
+    fetch("https://the-summit-gear.herokuapp.com/items/my", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -20,8 +20,7 @@ const MyItems = () => {
       body: JSON.stringify(userEmail),
     })
       .then((res) => res.json())
-      .then((data) => setItems(data));
-      console.log(items);
+      .then((data) => setItems(data)); 
   }, []);
  
   return (

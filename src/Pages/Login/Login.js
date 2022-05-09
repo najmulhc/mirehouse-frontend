@@ -20,7 +20,7 @@ const Login = () => {
       const {email} = user.user;
       const userId = {email}
       console.log(userId);
-      fetch("https://localhost:5000/login", {
+      fetch("https://the-summit-gear.herokuapp.com/login", {
         method:"POST",
         headers:{
           "content-type": "application/json"

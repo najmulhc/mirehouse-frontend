@@ -23,7 +23,7 @@ const AddItem = () => {
       user: adder,
     };
     console.log(item);
-    fetch("http://localhost:5000/items/add", {
+    fetch("https://the-summit-gear.herokuapp.com/items/add", {
       method: "POST",
       headers: {
         "content-type": "application/json",
